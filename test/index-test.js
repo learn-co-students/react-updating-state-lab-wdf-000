@@ -57,7 +57,6 @@ describe('<YouTubeDebugger />', function () {
     const wrapper = shallow(<YouTubeDebugger />);
     const expectedState = deepClone(BASE_STATE);
     expectedState.settings.bitrate = 12;
-
     wrapper.find('.bitrate').simulate('click');
 
     expect(wrapper.state()).toEqual(expectedState);
