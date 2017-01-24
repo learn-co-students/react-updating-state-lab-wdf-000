@@ -14,13 +14,12 @@ class DigitalClicker extends React.Component {
 
   handleClick(e) {
     this.setState({
-      timesClicked: ++this.state.timesClicked,
-    })
+      timesClicked: ++this.state.timesClicked}, () => console.log("clickityclicking"))
   }
 
     render() {
       return (
-        <button onClick={this.handleClick}>{this.state.timesClicked}</button>
+        <button onClick={this.handleClick}>DigitalClicker {this.state.timesClicked}</button>
       );
     }
 
