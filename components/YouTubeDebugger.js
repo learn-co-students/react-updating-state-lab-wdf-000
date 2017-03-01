@@ -4,8 +4,6 @@ import React from 'react';
 class YouTubeDebugger extends React.Component {
   constructor() {
     super()
-    this.bit = this.bit.bind(this);
-    this.res = this.res.bind(this);
     this.state = {
       errors: [],
       user: null,
@@ -16,25 +14,33 @@ class YouTubeDebugger extends React.Component {
         }
       }
     }
+    this.bit = this.bit.bind(this);
+    this.res = this.res.bind(this);
   }
 
   bit() {
     this.setState({
       settings: Object.assign({}, this.state.settings, {
         bitrate: 12
-      })
-    })
+      }),
+    });
   }
 
   res() {
-
+    this.setState({
+      settings: Object.assign({}, this.state.settings, {
+        video: Object.assign({}, this.state.settings.video, {
+          resolution: '720p'
+        })
+      })
+    })
   }
 
   render() {
     return (
       <div>
-        <button class="bitrate" onClick={this.bit}></button>
-        <button class="resolution" onClick={this.res}></button>
+        <button className="bitrate" onClick={this.bit}></button>
+        <button className="resolution" onClick={this.res}></button>
       </div>
     )
   }
